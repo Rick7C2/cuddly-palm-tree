@@ -61,9 +61,9 @@ jobs:
           --- a/src/lib/licenses/paymug.ts
           +++ b/src/lib/licenses/paymug.ts
           @@ -7,6 +7,17 @@ export async function callPaymugLicenseApi(
-              action: PaymugLicenseAction,
-              input: LicenseActivationInput | LicenseDeactivationInput,
-           ): Promise<PaymugLicenseResponse> {
+          	action: PaymugLicenseAction,
+          	input: LicenseActivationInput | LicenseDeactivationInput,
+          ): Promise<PaymugLicenseResponse> {
           +   // Private build: answer locally with the shape app.paymug.co returns instead of calling it.
           +   if (action === "deactivate") return { valid: false, state: "deactivated", instanceId: input.instanceId };
           +   return {
