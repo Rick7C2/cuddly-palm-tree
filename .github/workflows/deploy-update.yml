@@ -78,7 +78,7 @@ jobs:
                 let response: Response;
 
                 console.log(input);
-PATCH
+          PATCH
           if git diff --cached --quiet; then
             echo "Repository is already up to date."
             exit 0
